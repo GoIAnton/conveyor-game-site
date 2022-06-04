@@ -193,6 +193,12 @@ sup {
   vertical-align: baseline;
 }
 
+.root {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: max-content 1fr max-content;
+}
+
 sub {
   bottom: -0.25em;
 }

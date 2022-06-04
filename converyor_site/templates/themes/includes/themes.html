@@ -2,7 +2,7 @@
   {% if show_author %}
     <li>
       Автор: {{ theme.author.get_full_name }}
-      <a class="btn btn-outline-secondary btn-sm" href="{% url 'themes:profile' theme.author.get_username %}">все посты пользователя</a>
+      <a class="btn btn-outline-secondary btn-sm" href="{% url 'themes:profile' theme.author.get_username %}">все темы пользователя</a>
     </li>
   {% endif %}
   <li>
