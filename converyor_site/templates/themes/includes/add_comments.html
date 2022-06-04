@@ -1,0 +1,25 @@
+{% if user.is_authenticated %}
+<h5>Добавить комментарий:</h5>
+<div>
+  <form method="post" action="{% url 'themes:add_comment' theme.id %}">
+    {% csrf_token %}
+    <div>
+      {{ form.text }}
+    </div>
+    <button type="submit" class="btn btn-primary">Отправить</button>
+  </form>
+</div>
+{% endif %}
+
+{% for comment in comments %}
+<div>
+  <h5>
+    <a href="{% url 'themes:profile' comment.author.username %}">
+      {{ comment.author.username }}
+    </a>
+  </h5>
+  <p>
+    {{ comment.text }}
+  </p>
+</div>
+{% endfor %}

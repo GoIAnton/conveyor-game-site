@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Регистрация{% endblock %}
+{% block content %}
+<h3>Регистрация</h3>
+<div>
+  {% include 'includes/check_errors.html' %}
+  <form method="post" action="{% url 'users:signup' %}">
+    {% csrf_token %}
+    {% include 'includes/create_fields.html' %}
+    <div>
+      <button type="submit" class="btn btn-primary">
+        Зарегистрироваться
+      </button>
+    </div>
+  </form>
+</div>
+{% endblock %}

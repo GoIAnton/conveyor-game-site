@@ -1,0 +1,42 @@
+<header>
+  <ul class="nav">
+    <li class="nav-item"> 
+      <a class="nav-link active" href="{% url 'themes:index' %}">
+        Об игре
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link active" href="{% url 'themes:themes' %}">
+        Форум
+      </a>
+    </li>
+    {% if user.is_authenticated %}
+      <li class="nav-item"> 
+        <a class="nav-link active" href="{% url 'themes:theme_create' %}">
+          Новая запись
+        </a>
+      </li>
+      <li class="nav-item"> 
+        <a class="nav-link active" href="{% url 'users:logout' %}">
+          Выйти
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="{% url 'themes:profile' user.username %}">
+          Пользователь: {{ user.username }}
+        </a>
+      </li>
+    {% else %}
+      <li class="nav-item"> 
+        <a class="nav-link active" href="{% url 'users:login' %}">
+          Войти
+        </a>
+      </li>
+      <li class="nav-link active" class="nav-item"> 
+        <a href="{% url 'users:signup' %}">
+          Регистрация
+        </a>
+      </li>
+    {% endif %}
+  </ul>
+</header>

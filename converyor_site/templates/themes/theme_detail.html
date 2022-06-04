@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}
+  Тема {{ theme.text|slice:":30" }}
+{% endblock %}
+{% block content %}
+  <p>{{ theme.text|linebreaks }}</p>
+  <p>Создал тему: {{theme.author.get_full_name}}</p>
+  {% if theme.author.get_username == user.get_username %}
+    <div class="btn-group-vertical">
+      <a class="btn btn-secondary btn-sm" href="{% url 'themes:theme_edit' theme.pk %}">
+        редактировать тему
+      </a>
+      <a class="btn btn-danger btn-sm" href="{% url 'themes:theme_delete' theme.id %}">
+        удалить тему
+      </a>
+    </div>
+  {% endif %}
+  {% include 'themes/includes/add_comments.html' %}
+{% endblock %}

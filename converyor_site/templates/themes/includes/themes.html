@@ -1,0 +1,15 @@
+<ul>
+  {% if show_author %}
+    <li>
+      Автор: {{ theme.author.get_full_name }}
+      <a class="btn btn-outline-secondary btn-sm" href="{% url 'themes:profile' theme.author.get_username %}">все посты пользователя</a>
+    </li>
+  {% endif %}
+  <li>
+     Дата публикации: {{ theme.pub_date|date:"d E Y" }}
+  </li>
+</ul>
+<p>{{ theme.text|linebreaks }}</p>
+<a class="btn btn-dark btn-sm" href="{% url 'themes:theme_detail' theme.pk %}">подробная информация</a>
+{% if not forloop.last %}<hr>{% endif %}
+  
